@@ -14,3 +14,7 @@
 
 
 For detailed information 👉🏻  https://github.com/aydinWerve/ReCapProject/blob/master/SQLQuery1.sql
+
+<br>
+
+✨If you like to use Visual Studio Code 👉🏻 https://github1s.com/aydinWerve/ReCapProject 🤸‍♀️
