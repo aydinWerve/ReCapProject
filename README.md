@@ -13,4 +13,4 @@
 ![Adsız](https://user-images.githubusercontent.com/75077490/107976446-a0654380-6fca-11eb-947e-c26094f550af.png)
 
 
-For detailed information 👉🏻
+For detailed information 👉🏻  https://github.com/aydinWerve/ReCapProject/blob/master/SQLQuery1.sql
