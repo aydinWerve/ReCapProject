@@ -1,4 +1,3 @@
-# ReCapProject
 <h1 align="center">Rent a car</h1>
 
 <br>
