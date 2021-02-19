@@ -19,7 +19,8 @@
 
 <h6>💢 Rentals ➡ RentalId = Primary Key, CarId & CustomerId = Foreing Keys </h6>
 
-[Adsız](https://user-images.githubusercontent.com/75077490/108565301-7cc93280-7315-11eb-868e-141fe858270d.png)
+
+![Adsız](https://user-images.githubusercontent.com/75077490/108566205-1218f680-7317-11eb-964e-b03fa5027977.png)
 
 
 For detailed information 👉🏻  https://github.com/aydinWerve/ReCapProject/blob/master/SQLQuery1.sql
