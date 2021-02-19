@@ -25,6 +25,34 @@ CREATE TABLE [dbo].[Colors] (
     PRIMARY KEY CLUSTERED ([ColorId] ASC)
 );
 
+CREATE TABLE [dbo].[Customers] (
+    [CustomerId]  INT           IDENTITY (1, 1) NOT NULL,
+    [UserId]      INT           NOT NULL,
+    [CompanyName] NVARCHAR (50) NOT NULL,
+    PRIMARY KEY CLUSTERED ([CustomerId] ASC),
+    CONSTRAINT [FK_UserId] FOREIGN KEY ([UserId]) REFERENCES [dbo].[Users] ([UserId])
+);
+
+CREATE TABLE [dbo].[Users] (
+    [UserId]    INT           IDENTITY (1, 1) NOT NULL,
+    [FirstName] NVARCHAR (25) NOT NULL,
+    [LastName]  NVARCHAR (25) NOT NULL,
+    [Email]     NVARCHAR (50) NOT NULL,
+    [Password]  NVARCHAR (20) NOT NULL,
+    PRIMARY KEY CLUSTERED ([UserId] ASC)
+);
+
+CREATE TABLE [dbo].[Rentals] (
+    [RentalId]   INT      IDENTITY (1, 1) NOT NULL,
+    [CarId]      INT      NOT NULL,
+    [CustomerId] INT      NOT NULL,
+    [RentDate]   DATETIME NOT NULL,
+    [ReturnDate] DATETIME NULL,
+    PRIMARY KEY CLUSTERED ([RentalId] ASC),
+    CONSTRAINT [FK_CarId] FOREIGN KEY ([CarId]) REFERENCES [dbo].[Cars] ([CarId]),
+    CONSTRAINT [FK_CustomerId] FOREIGN KEY ([CustomerId]) REFERENCES [dbo].[Customers] ([CustomerId])
+);
+
 Cars Table View Data
 
 1	1	1	2020	250	E-Serisi Coupe
