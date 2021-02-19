@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using Business.Abstract;
+using Core.Utilities;
 using DataAccess.Abstract;
 using Entities.Concrete;
 
@@ -16,7 +17,22 @@ namespace Business.Concrete
             _colorDal = colorDal;
         }
 
-        public List<Color> GetAll()
+        public IResult Add(Color color)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IResult Delete(Color color)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IDataResult<List<Color>> GetAll()
+        {
+            throw new NotImplementedException();
+        }
+
+        public IResult Update(Color color)
         {
             throw new NotImplementedException();
         }
