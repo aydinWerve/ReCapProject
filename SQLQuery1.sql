@@ -1,3 +1,4 @@
+                                                                    
                                                                     ﻿Databases  RentACar
 
 CREATE TABLE [dbo].[Cars] (
