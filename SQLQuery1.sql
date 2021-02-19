@@ -1,4 +1,4 @@
-﻿Databases  RentACar
+                                                                    ﻿Databases  RentACar
 
 CREATE TABLE [dbo].[Cars] (
     [CarId]       INT           IDENTITY (1, 1) NOT NULL,
