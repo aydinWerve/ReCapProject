@@ -7,13 +7,20 @@
 <br>
 <h2>Database Tables😋</h2>
 
-<h6>💢 CarId ➡ Primary Keys </h6>
+<h6>💢 Cars ➡ CarId = Primary Key, BrandId & ColorId = Foreing Keys </h6>
 
-<h6>💢 BrandId ➡ Foreing Keys </h6>
+<h6>💢 Brands ➡ BrandId = Primary Key </h6>
 
-<h6>💢 ColorId ➡ Foreing Keys </h6>
+<h6>💢 Colors ➡ ColorId = Primary Key </h6>
 
-![Adsız](https://user-images.githubusercontent.com/75077490/107976446-a0654380-6fca-11eb-947e-c26094f550af.png)
+<h6>💢 Customers ➡ CustomerId = Primary Key, UserId = Foreing Key </h6>
+
+<h6>💢 Users ➡ Users = Primary Key </h6>
+
+<h6>💢 Rentals ➡ RentalId = Primary Key, CarId & CustomerId = Foreing Keys </h6>
+
+
+![Adsız](https://user-images.githubusercontent.com/75077490/108566205-1218f680-7317-11eb-964e-b03fa5027977.png)
 
 
 For detailed information 👉🏻  https://github.com/aydinWerve/ReCapProject/blob/master/SQLQuery1.sql
