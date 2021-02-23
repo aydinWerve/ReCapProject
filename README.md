@@ -5,9 +5,13 @@
 <h2>Packages to be installed👀</h2>
 <h6>💢 Entity Framework ➡ Microsoft.EntityFrameworkCore.SqlServer  v3.1.11 (DataAccess ve Core Katmanına) </h6>
 
-<h6>💢 IOC Container ➡ Autofac  v6.1.0 (Business Katmanına) </h6>
+<h6>💢 IOC Container ➡ Autofac  v6.1.0 (Business  ve Core Katmanına) </h6>
 
-<h6>💢 IOC Container ➡ Autofac.Extras.DynamicProxy  v6.0.0 (Business Katmanına) </h6>
+<h6>💢 IOC Container ➡ Autofac.Extras.DynamicProxy  v6.0.0 (Business ve Core Katmanına) </h6>
+
+<h6>💢 IOC Container ➡ Autofac.Extensions.DependencyInjection  v7.1.0 (Core Katmanına) </h6>
+
+<h6>💢 Fluent Validation ➡ FluentValidation  v9.5.1 (Business Katmanına) </h6>
 <br>
 <h2>Database Tables😋</h2>
 
