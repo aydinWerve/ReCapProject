@@ -2,7 +2,7 @@
 
 <br>
 
-<h2>Packages to be installed👀</h2>
+<h2>NuGet Packages👀</h2>
 <h6>💢 Entity Framework ➡ Microsoft.EntityFrameworkCore.SqlServer  v3.1.11 (DataAccess ve Core Katmanına) </h6>
 
 <h6>💢 IOC Container ➡ Autofac  v6.1.0 (Business  ve Core Katmanına) </h6>
