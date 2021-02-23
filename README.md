@@ -8,6 +8,8 @@
 <h6>💢 IOC Container ➡ Autofac  v6.1.0 (Business Katmanına) </h6>
 
 <h6>💢 IOC Container ➡ Autofac.Extras.DynamicProxy  v6.0.0 (Business Katmanına) </h6>
+
+<h6>💢 Fluent Validation ➡ FluentValidation  v9.5.1 (Business Katmanına) </h6>
 <br>
 <h2>Database Tables😋</h2>
 
