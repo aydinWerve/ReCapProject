@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Text;
 using Business.Abstract;
+using Business.ValidationRules.FluentValidation;
+using Core.Aspects.Autofac.Validation;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
@@ -17,24 +19,28 @@ namespace Business.Concrete
             _colorDal = colorDal;
         }
 
+        [ValidationAspect(typeof(ColorValidator))]
         public IResult Add(Color color)
         {
-            throw new NotImplementedException();
+            _colorDal.Add(color);
+            return new SuccessResult();
         }
 
         public IResult Delete(Color color)
         {
-            throw new NotImplementedException();
+            _colorDal.Delete(color);
+            return new SuccessResult();
         }
 
         public IDataResult<List<Color>> GetAll()
         {
-            throw new NotImplementedException();
+            return new SuccessDataResult<List<Color>>(_colorDal.GetAll());
         }
 
         public IResult Update(Color color)
         {
-            throw new NotImplementedException();
+            _colorDal.Update(color);
+            return new SuccessResult();
         }
     }
 }

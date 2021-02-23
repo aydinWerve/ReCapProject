@@ -34,7 +34,8 @@ namespace Business.Concrete
 
         public IResult Delete(Car car)
         {
-            throw new NotImplementedException();
+            _carDal.Delete(car);
+            return new SuccessResult();
         }
 
         public IDataResult<List<Car>> GetAll()
@@ -59,7 +60,8 @@ namespace Business.Concrete
 
         public IResult Update(Car car)
         {
-            throw new NotImplementedException();
+            _carDal.Update(car);
+            return new SuccessResult();
         }
     }
 }

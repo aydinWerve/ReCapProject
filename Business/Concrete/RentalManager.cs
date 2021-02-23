@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Text;
 using Business.Abstract;
 using Business.Constants;
+using Business.ValidationRules.FluentValidation;
+using Core.Aspects.Autofac.Validation;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
@@ -19,21 +21,17 @@ namespace Business.Concrete
             _rentalDal = rentalDal;
         }
 
+        [ValidationAspect(typeof(RentalValidator))]
         public IResult Add(Rental rental)
         {
-            if (rental.ReturnDate == null)
-            {
-                return new ErrorResult(Messages.CannotBeRented);
-            }
+
             if (_rentalDal.GetRentalDetailDTOs(c => c.CarId == rental.CarId).Count > 0)
             {
                 return new ErrorResult(Messages.NoCar);
             }
-            else
-            {
-                _rentalDal.Add(rental);
-                return new SuccessResult();
-            }
+
+            _rentalDal.Add(rental);
+            return new SuccessResult();
         }
 
         public IResult Delete(Rental rental)
