@@ -32,9 +32,9 @@ namespace WebAPI.Controllers
         }
 
         [HttpGet("getrentalretaildtos")]
-        public IActionResult GetRentalDetailDTOs()
+        public IActionResult GetRentalDetailDTOs(Brand brand)
         {
-            var result = _rentalService.GetRentalDetailDTOs();
+            var result = _rentalService.GetRentalDetailDTOs(brand);
             if (result.Success)
             {
                 return Ok(result);
