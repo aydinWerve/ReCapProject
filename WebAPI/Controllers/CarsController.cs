@@ -22,12 +22,12 @@ namespace WebAPI.Controllers
 
 
         [HttpGet("getall")]
-        public IActionResult GetAll() //getall
+        public IActionResult GetAll()
         {
             var result = _carService.GetAll();
             if (result.Success)
             {
-                return Ok(result);//Http 200
+                return Ok(result);
             }
             return BadRequest(result);
         }
