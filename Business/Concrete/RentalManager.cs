@@ -53,9 +53,9 @@ namespace Business.Concrete
             return new SuccessResult();
         }
 
-        public IDataResult<List<RentalDetailDTO>> GetRentalDetailDTOs(Brand brand)
+        public IDataResult<List<RentalDetailDTO>> GetRentalDetailDTOs()
         {
-            return new SuccessDataResult<List<RentalDetailDTO>>(_rentalDal.GetRentalDetailDTOs(brand));
+            return new SuccessDataResult<List<RentalDetailDTO>>(_rentalDal.GetRentalDetailDTOs());
         }
 
         private IResult CheckIfThereIsACar(int carId)

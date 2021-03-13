@@ -34,9 +34,10 @@ namespace WebAPI.Controllers
         }
 
         [HttpGet("getrentalretaildtos")]
-        public IActionResult GetRentalDetailDTOs(Brand brand)
+        public IActionResult GetRentalDetailDTOs()
         {
-            var result = _rentalService.GetRentalDetailDTOs(brand);
+            Thread.Sleep(800);
+            var result = _rentalService.GetRentalDetailDTOs();
             if (result.Success)
             {
                 return Ok(result);
