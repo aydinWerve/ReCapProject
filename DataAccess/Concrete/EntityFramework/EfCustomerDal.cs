@@ -19,8 +19,8 @@ namespace DataAccess.Concrete.EntityFramework
             using (RentACarContext context = new RentACarContext())
             {
                 var result = from c in context.Customers
-                             join u in context.Users on c.UserId equals u.UserId
-                             select new CustomerDetailDTO { CustomerId = c.CustomerId, FirstName = u.FirstName, LastName = u.LastName, CompanyName = c.CompanyName };
+                             join u in context.Users on c.UserId equals u.Id
+                             select new CustomerDetailDTO { Id = c.Id, FirstName = u.FirstName, LastName = u.LastName, CompanyName = c.CompanyName };
                 return result.ToList();
             }
         }
