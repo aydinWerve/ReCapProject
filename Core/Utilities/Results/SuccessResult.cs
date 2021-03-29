@@ -6,12 +6,12 @@ namespace Core.Utilities.Results
 {
     public class SuccessResult : Result
     {
-        public SuccessResult(string message) : base(true,message) //Default olarak true vermiş olduk succes clasını da bu yüzden oluşturduk zaten
+        public SuccessResult(string message) : base(true,message)
         {
 
         }
 
-        public SuccessResult() : base(true) //mesaj vermek istemiyorsa
+        public SuccessResult() : base(true)
         {
 
         }

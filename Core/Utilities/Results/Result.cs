@@ -6,7 +6,6 @@ namespace Core.Utilities.Results
 {
     public class Result : IResult
     {
-        //DRY
         public Result(bool success, string message) : this(success)
         {
             Message = message;

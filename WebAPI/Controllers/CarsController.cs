@@ -21,12 +21,10 @@ namespace WebAPI.Controllers
             _carService = carService;
         }
 
-
         [HttpGet("getall")]
         public IActionResult GetAll()
         {
             Thread.Sleep(800);
-
             var result = _carService.GetAll();
             if (result.Success)
             {
@@ -35,23 +33,10 @@ namespace WebAPI.Controllers
             return BadRequest(result);
         }
 
-        [HttpGet("getcardetaildtos")]
-        public IActionResult GetCarDetailDTOs()
+        [HttpGet("getbyid")]
+        public IActionResult GetById(int id)
         {
-            Thread.Sleep(800);
-
-            var result = _carService.GetCarDetailDTOs();
-            if (result.Success)
-            {
-                return Ok(result);
-            }
-            return BadRequest(result);
-        }
-
-        [HttpGet("getcarsbycolorid")]
-        public IActionResult GetCarsByColorId(int id)
-        {
-            var result = _carService.GetCarsByColorId(id);
+            var result = _carService.GetById(id);
             if (result.Success)
             {
                 return Ok(result);
@@ -70,6 +55,28 @@ namespace WebAPI.Controllers
             return BadRequest(result);
         }
 
+        [HttpGet("getcarsbycolorid")]
+        public IActionResult GetCarsByColorId(int id)
+        {
+            var result = _carService.GetCarsByColorId(id);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
+
+        [HttpGet("getcardetaildtos")]
+        public IActionResult GetCarDetailDTOs()
+        {
+            var result = _carService.GetCarDetailDTOs();
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
+
         [HttpPost("add")]
         public IActionResult Add(Car car)
         {
@@ -81,10 +88,10 @@ namespace WebAPI.Controllers
             return BadRequest(result);
         }
 
-        [HttpPut("update")]
-        public IActionResult Update(Car car)
+        [HttpPost("delete")]
+        public IActionResult Delete(Car car)
         {
-            var result = _carService.Update(car);
+            var result = _carService.Delete(car);
             if (result.Success)
             {
                 return Ok(result);
@@ -92,10 +99,10 @@ namespace WebAPI.Controllers
             return BadRequest(result);
         }
 
-        [HttpDelete("delete")]
-        public IActionResult Delete(Car car)
+        [HttpPost("update")]
+        public IActionResult Update(Car car)
         {
-            var result = _carService.Delete(car);
+            var result = _carService.Update(car);
             if (result.Success)
             {
                 return Ok(result);

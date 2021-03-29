@@ -23,34 +23,15 @@ namespace Business.Concrete
             _carDal = carDal;
         }
 
-        [SecuredOperation("car.add,admin")]
-        [ValidationAspect(typeof(CarValidator))]
-        [CacheRemoveAspect("ICarService.Get")]
-        public IResult Add(Car car)
-        {
-            //if (car.DailyPrice < 0)
-            //{
-            //    return new ErrorResult(Messages.PriceFilter);
-            //}
-            _carDal.Add(car);
-            return new SuccessResult(Messages.CarAdded);
-        }
-
-        public IResult Delete(Car car)
-        {
-            _carDal.Delete(car);
-            return new SuccessResult();
-        }
-
         [CacheAspect]
         public IDataResult<List<Car>> GetAll()
         {
-            return new SuccessDataResult<List<Car>>(_carDal.GetAll());
+            return new SuccessDataResult<List<Car>>(_carDal.GetAll(), Messages.Listed);
         }
 
-        public IDataResult<List<CarDetailDTO>> GetCarDetailDTOs()
+        public IDataResult<Car> GetById(int carId)
         {
-            return new SuccessDataResult<List<CarDetailDTO>>(_carDal.GetCarDetailDTOs());
+            return new SuccessDataResult<Car>(_carDal.Get(c => c.Id == carId));
         }
 
         public IDataResult<List<Car>> GetCarsByBrandId(int id)
@@ -63,12 +44,34 @@ namespace Business.Concrete
             return new SuccessDataResult<List<Car>>(_carDal.GetAll(c => c.ColorId == id));
         }
 
+        public IDataResult<List<CarDetailDTO>> GetCarDetailDTOs()
+        {
+            return new SuccessDataResult<List<CarDetailDTO>>(_carDal.GetCarDetailDTOs());
+        }
+
+        [SecuredOperation("car.add,admin")]
+        [ValidationAspect(typeof(CarValidator))]
+        [CacheRemoveAspect("ICarService.Get")]
+        public IResult Add(Car car)
+        {
+            _carDal.Add(car);
+            return new SuccessResult(Messages.Added);
+        }
+
+        public IResult Delete(Car car)
+        {
+            _carDal.Delete(car);
+            return new SuccessResult(Messages.Deleted);
+        }
+
+        [SecuredOperation("car.add,admin")]
         [ValidationAspect(typeof(CarValidator))]
         [CacheRemoveAspect("ICarService.Get")]
         public IResult Update(Car car)
         {
             _carDal.Update(car);
-            return new SuccessResult();
+            return new SuccessResult(Messages.Updated);
         }
+
     }
 }

@@ -22,13 +22,23 @@ namespace WebAPI.Controllers
         }
 
         [HttpGet("getall")]
-        public IActionResult GetAll() //getall
+        public IActionResult GetAll()
         {
-            Thread.Sleep(800);
             var result = _customerService.GetAll();
             if (result.Success)
             {
-                return Ok(result);//Http 200
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
+
+        [HttpGet("getbyid")]
+        public IActionResult GetById(int id)
+        {
+            var result = _customerService.GetById(id);
+            if (result.Success)
+            {
+                return Ok(result);
             }
             return BadRequest(result);
         }
@@ -55,7 +65,18 @@ namespace WebAPI.Controllers
             return BadRequest(result);
         }
 
-        [HttpPut("update")]
+        [HttpPost("delete")]
+        public IActionResult Delete(Customer customer)
+        {
+            var result = _customerService.Delete(customer);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
+
+        [HttpPost("update")]
         public IActionResult Update(Customer customer)
         {
             var result = _customerService.Update(customer);
@@ -66,15 +87,5 @@ namespace WebAPI.Controllers
             return BadRequest(result);
         }
 
-        [HttpDelete("delete")]
-        public IActionResult Delete(Customer customer)
-        {
-            var result = _customerService.Delete(customer);
-            if (result.Success)
-            {
-                return Ok(result);
-            }
-            return BadRequest(result);
-        }
     }
 }

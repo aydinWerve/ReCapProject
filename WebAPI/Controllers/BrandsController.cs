@@ -21,14 +21,25 @@ namespace WebAPI.Controllers
             _brandService = brandService;
         }
 
-        [HttpGet("getall")] //Beni dışardan böyle çağır.
-        public IActionResult GetAll() //getall
+        [HttpGet("getall")]
+        public IActionResult GetAll()
         {
             Thread.Sleep(800);
             var result = _brandService.GetAll();
             if (result.Success)
             {
-                return Ok(result);//Http 200
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
+
+        [HttpGet("getbyid")]
+        public IActionResult GetById(int id)
+        {
+            var result = _brandService.GetById(id);
+            if (result.Success)
+            {
+                return Ok(result);
             }
             return BadRequest(result);
         }
@@ -44,7 +55,18 @@ namespace WebAPI.Controllers
             return BadRequest(result);
         }
 
-        [HttpPut("update")]
+        [HttpPost("delete")]
+        public IActionResult Delete(Brand brand)
+        {
+            var result = _brandService.Delete(brand);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
+
+        [HttpPost("update")]
         public IActionResult Update(Brand brand)
         {
             var result = _brandService.Update(brand);
@@ -55,15 +77,5 @@ namespace WebAPI.Controllers
             return BadRequest(result);
         }
 
-        [HttpDelete("delete")]
-        public IActionResult Delete(Brand brand)
-        {
-            var result = _brandService.Delete(brand);
-            if (result.Success)
-            {
-                return Ok(result);
-            }
-            return BadRequest(result);
-        }
     }
 }

@@ -6,12 +6,15 @@ namespace Business.Constants
 {
     public static class Messages
     {
-        public static string CarAdded = "Araba eklendi";
-        public static string PriceFilter = "Günlük Fiyatı 0'dan büyük olmalıdır !!";
-        public static string BrandNameFilter = "Araba markası 2 karakterden fazla olmalıdır";
-        public static string CarsListed = "Arabalar listelendi";
-        public static string CannotBeRented = "Arabanın kiralanabilmesi için arabanın teslim edilmesi gerekmektedir.";
-        public static string NoCar = "Malesef yoğunluk sebebiyle elimizde araç bulunmamaktadır";
+        public static string Added = "Başarılı bir şekilde eklenmiştir!";
+        public static string NotAdded = "Malesef eklenemez!";
+        public static string Deleted = "Başarılı bir şekilde silinmiştir!";
+        public static string NotDeleted = "Malesef silinemez!";
+        public static string Updated = "Başarılı bir şekilde güncellenmiştir!";
+        public static string NotUpdated = "Malesef güncellenemez!";
+        public static string Listed = "Başarılı bir şekilde listelenmiştir!";
+        public static string NotListed = "Malesef listelenemez!";
+        public static string ReturnDateOfRentalError = " Araç teslim edilmediği için gerçekleştirmeye çalıştığınız işlem yapılamaz!";
         public static string AuthorizationDenied = "Yetkiniz yok";
         public static string UserRegistered = "Kayıt oldu";
         public static string UserNotFound = "Kullanıcı bulunamadı";

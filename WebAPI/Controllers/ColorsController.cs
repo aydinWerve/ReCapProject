@@ -21,18 +21,27 @@ namespace WebAPI.Controllers
             _colorService = colorService;
         }
 
-        [HttpGet("getall")] //Beni dışardan böyle çağır.
-        public IActionResult GetAll() //getall
+        [HttpGet("getall")]
+        public IActionResult GetAll()
         {
-            Thread.Sleep(800);
             var result = _colorService.GetAll();
             if (result.Success)
             {
-                return Ok(result);//Http 200
+                return Ok(result);
             }
             return BadRequest(result);
         }
 
+        [HttpGet("getbyid")]
+        public IActionResult GetById(int id)
+        {
+            var result = _colorService.GetById(id);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
 
         [HttpPost("add")]
         public IActionResult Add(Color color)
@@ -45,10 +54,10 @@ namespace WebAPI.Controllers
             return BadRequest(result);
         }
 
-        [HttpPut("update")]
-        public IActionResult Update(Color color)
+        [HttpPost("delete")]
+        public IActionResult Delete(Color color)
         {
-            var result = _colorService.Update(color);
+            var result = _colorService.Delete(color);
             if (result.Success)
             {
                 return Ok(result);
@@ -56,10 +65,10 @@ namespace WebAPI.Controllers
             return BadRequest(result);
         }
 
-        [HttpDelete("delete")]
-        public IActionResult Delete(Color color)
+        [HttpPost("update")]
+        public IActionResult Update(Color color)
         {
-            var result = _colorService.Delete(color);
+            var result = _colorService.Update(color);
             if (result.Success)
             {
                 return Ok(result);

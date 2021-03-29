@@ -22,10 +22,25 @@ namespace Business.Concrete
             _rentalDal = rentalDal;
         }
 
+        public IDataResult<List<Rental>> GetAll()
+        {
+            return new SuccessDataResult<List<Rental>>(_rentalDal.GetAll(), Messages.Listed);
+        }
+
+        public IDataResult<Rental> GetById(int rentalId)
+        {
+            return new SuccessDataResult<Rental>(_rentalDal.Get(c => c.Id == rentalId), Messages.Listed);
+        }
+
+        public IDataResult<List<RentalDetailDTO>> GetRentalDetailDTOs()
+        {
+            return new SuccessDataResult<List<RentalDetailDTO>>(_rentalDal.GetRentalDetailDTOs());
+        }
+
         [ValidationAspect(typeof(RentalValidator))]
         public IResult Add(Rental rental)
         {
-            IResult result = BusinessRules.Run(CheckIfThereIsACar(rental.CarId));
+            IResult result = BusinessRules.Run(CheckIfReturnDateOfRentalCorrect(rental.ReturnDate));
 
             if (result != null)
             {
@@ -34,38 +49,31 @@ namespace Business.Concrete
 
             _rentalDal.Add(rental);
             return new SuccessResult();
+
         }
 
         public IResult Delete(Rental rental)
         {
             _rentalDal.Delete(rental);
-            return new SuccessResult();
+            return new SuccessResult(Messages.Deleted);
         }
 
-        public IDataResult<List<Rental>> GetAll()
-        {
-            return new SuccessDataResult<List<Rental>>(_rentalDal.GetAll());
-        }
-
+        [ValidationAspect(typeof(RentalValidator))]
         public IResult Update(Rental rental)
         {
             _rentalDal.Update(rental);
-            return new SuccessResult();
+            return new SuccessResult(Messages.Updated);
         }
 
-        public IDataResult<List<RentalDetailDTO>> GetRentalDetailDTOs()
+        private IResult CheckIfReturnDateOfRentalCorrect(DateTime returnDate)
         {
-            return new SuccessDataResult<List<RentalDetailDTO>>(_rentalDal.GetRentalDetailDTOs());
-        }
-
-        private IResult CheckIfThereIsACar(int carId)
-        {
-            var result = _rentalDal.GetAll(r => r.CarId == carId).Count;
-            if (result <= 0)
+            var result = _rentalDal.GetAll(r => r.ReturnDate == returnDate);
+            if (result == null)
             {
-                return new ErrorResult(Messages.NoCar);
+                return new ErrorResult(Messages.ReturnDateOfRentalError);
             }
             return new SuccessResult();
         }
+
     }
 }
