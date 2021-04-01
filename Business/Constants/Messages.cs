@@ -19,7 +19,8 @@ namespace Business.Constants
         public static string NotListed = "Malesef listelenemez!";
 
 
-        public static string ReturnDateOfRentalError = " Araç teslim edilmediği için gerçekleştirmeye çalıştığınız işlem yapılamaz!";
+        public static string ReturnDateOfRentalError = "Araç teslim edilmediği için gerçekleştirmeye çalıştığınız işlem yapılamaz!";
+        public static string CarCheckImageLimited = "Bir arabanın en fazla 5 resmi olabilir!";
 
 
         public static string AuthorizationDenied = "Yetkiniz yok";
